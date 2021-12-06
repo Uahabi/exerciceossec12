@@ -79,8 +79,9 @@ Copie de la clef publique vers la machine cible "srv2"
     --rule $rule1 \
     $data_stream
 
-# 8 résolution de la vulnérabilité avec ansible :
-> Pour le fix via ansible nous avons besoin seulement de l’id de la règle qui est stocké dans la variable $rule1 et exécuter la commande suivante :
+# 8 récupération dans une variable du fix ansible sur base de l'ID de la règle de vulnérabilité :
+
+> Nous allons charger le fix ansible, nous avons besoin seulement de l’id de la règle qui est stocké dans la variable $rule1 et exécuter la commande suivante :
 
 =>  result_id=$(oscap info rule1-$type-results.xml | grep 'Result ID' | sed 's/[[:blank:]]Result ID: //')
     oscap xccdf generate fix \
@@ -89,10 +90,17 @@ Copie de la clef publique vers la machine cible "srv2"
     --profile $profile \
     --result-id $result_id \
     rule1-$type-results.xml
+# 9 résolution de la vulnérabilité avec ansible :
   
+> Execution de la commande de résolution de la vulnérabilité
+
+=>  ansible-playbook -i "$target," rule1-$type-playbook.yml  
+
 > Pour que la résolution soit effective nous allons redémarrer la cible « srv2 »
 
 =>  ansible all -i "$target," -m reboot
+
+# 10 Validation de la mise en conformité
 
 > Nous pouvons maintenant vérifier avec la commande ci-dessous si la vulnérabilité a été résolu, cette commande va générer un nouveau fichier qu'on nommera "std-after" pour ce faire nous allons remplacer le contenu de notre variable $type
 
