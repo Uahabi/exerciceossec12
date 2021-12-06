@@ -43,7 +43,7 @@ Copie de la clef publique vers la machine cible "srv2"
 
 # 4 Exécution de la commande pour effectuer l’analyse sur la machine    cible « srv2 » :
 
-> La commande de l’outil Openscap ci-dessous va lancer une analyse via ssh sur la machine cible « srv2 » en se basant sur les critères de sécurité ANSSI pour ensuite générer de fichier de rapport en xml et html qui seront nommé via la variable $type en « srv2-bp28m-before ».
+> La commande de l’outil Openscap ci-dessous va lancer une analyse via ssh sur la machine cible « srv2 » en se basant sur les critères de sécurité ANSSI pour ensuite générer des fichiers de rapport en xml et html qui seront nommé via la variable $type en « srv2-bp28m-before ».
 
 =>  oscap-ssh --sudo root@$target 22 xccdf eval --fetch-remote-resource --profile $profile --results $type-results.xml --report $type-report.html --oval-results --cpe $cpe_dict $data_stream
 
