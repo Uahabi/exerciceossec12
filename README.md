@@ -11,14 +11,14 @@ Lorsque l'analyse est terminée il faut apporter le correctif pour une vulnérab
 
 =>  ./Varaibles.sh
 ==================================================================================
-|	#!/bin/sh                                                                      |
-|                                                                                |
-|	target="srv2"                                                                  |
-|	type="$target-bp28m-before"                                                    |
-|	profile="xccdf_org.ssgproject.content_profile_anssi_nt28_minimal"              |
-|	cpe_dict="/usr/share/xml/scap/ssg/content/ssg-rhel7-cpe-dictionary.xml"        |
-|	data_stream="/usr/share/xml/scap/ssg/content/ssg-rhel7-ds-1.2.xml"             |                                         
-|	rule1="xccdf_org.ssgproject.content_rule_ensure_gpgcheck_local_packages"       |
+  #!/bin/sh                                                                      
+                                                                                
+  target="srv2"                                                                  
+	 type="$target-bp28m-before"                                                    
+	 profile="xccdf_org.ssgproject.content_profile_anssi_nt28_minimal"              
+	 cpe_dict="/usr/share/xml/scap/ssg/content/ssg-rhel7-cpe-dictionary.xml"        
+	 data_stream="/usr/share/xml/scap/ssg/content/ssg-rhel7-ds-1.2.xml"                                                      
+	 rule1="xccdf_org.ssgproject.content_rule_ensure_gpgcheck_local_packages"       
 ==================================================================================
 
 2# Connexion ssh via clef RSA vers machine cible « srv2 » :
