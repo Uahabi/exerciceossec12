@@ -1,4 +1,4 @@
-# ########Exercice1 GNS3 OpenScap OSSEC12########
+# ############Exercice1 GNS3 OpenScap OSSEC12############
 
 # Tâche :
 
