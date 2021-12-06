@@ -50,6 +50,7 @@ Copie de la clef publique vers la machine cible "srv2"
 > Vérification que les fichiers ont bien été généré après l’analyse.
 
 => ls -l srv*
+
 => ls -l ssg*
 
 # 5 Exécution de la commande pour générer un fichier de guide de configuration :
