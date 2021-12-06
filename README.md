@@ -21,7 +21,7 @@ Lorsque l'analyse est terminée il faut apporter le correctif pour une vulnérab
   rule1="xccdf_org.ssgproject.content_rule_ensure_gpgcheck_local_packages"       
 
 
-# 2 Connexion ssh via clef RSA vers machine cible « srv2 » :
+# 2 Connexion ssh avec clef RSA vers machine cible « srv2 » :
 
 Le protocole ssh combiné avec une clef RSA va nous permettre de nous connecter à la machine cible et exécuter les analyses sans devoir s’authentifier avec un mot de passe.(sauf pour la 1er connexion)
 
