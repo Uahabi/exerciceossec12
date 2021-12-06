@@ -5,13 +5,13 @@
 Depuis la machine "controler" (192.168.122.216, CentOS 7) il faut installer l'outil OpenScap pour ensuite via le protocole SSH (connexion sécurisée réalisé avec une clé Publique RSA) analyser la machine "srv2" (192.168.122.010, CentOS 7) en utilisant comme base ANSSI.
 Lorsque l'analyse est terminée il faut apporter le correctif pour une vulnérabilité (fail) en utilisant ansible.
 
-#1 Création des variables :
+# 1 Création des variables :
 
 > Pour se faire j'ai enregistré les variables dans un fichier scripte pour qu'en cas de plantage ou redémarrage de la machine "controler" j'execute le scripte et gagne du temps 
 
 =>  ./Varaibles.sh
 ==================================================================================
-  #!/bin/sh                                                                      
+  !/bin/sh                                                                      
                                                                                 
   target="srv2"                                                                  
 	 type="$target-bp28m-before"                                                    
@@ -21,7 +21,7 @@ Lorsque l'analyse est terminée il faut apporter le correctif pour une vulnérab
 	 rule1="xccdf_org.ssgproject.content_rule_ensure_gpgcheck_local_packages"       
 ==================================================================================
 
-#2 Connexion ssh via clef RSA vers machine cible « srv2 » :
+# 2 Connexion ssh via clef RSA vers machine cible « srv2 » :
 
 Le protocole ssh combiné avec une clef RSA va nous permettre de nous connecter à la machine cible et exécuter les analyses sans devoir s’authentifier avec un mot de passe.(sauf pour la 1er connexion)
 
@@ -37,11 +37,11 @@ Copie de la clef publique vers la machine cible "srv2"
 
 => ssh $target "yum -y install scap-security-guide"
 
-#3 Installation des packages OpenScap + SSG sur le contrôleur :
+# 3 Installation des packages OpenScap + SSG sur le contrôleur :
 
 => curl -L https://git.io/JMiO5 | bash -x
 
-#4 Exécution de la commande pour effectuer l’analyse sur la machine    cible « srv2 » :
+# 4 Exécution de la commande pour effectuer l’analyse sur la machine    cible « srv2 » :
 
 > La commande de l’outil Openscap ci-dessous va lancer une analyse via ssh sur la machine cible « srv2 » en se basant sur les critères de sécurité ANSSI pour ensuite générer de fichier de rapport en xml et html qui seront nommé via la variable $type en « srv2-bp28m-before ».
 
@@ -51,13 +51,13 @@ Copie de la clef publique vers la machine cible "srv2"
 
 => ls -l srv*
 
-#5 Exécution de la commande pour générer un fichier de guide de configuration :
+# 5 Exécution de la commande pour générer un fichier de guide de configuration :
 
 > Ce fichier permet de donner les solutions pour résoudre les mauvaises configurations et les vulnérabilités.
 
 =>  oscap xccdf generate guide --profile $profile --output $type-guide.html $type-results.xml
 
-#6 Exécution de la commande pour générer l’accès au guide.html via python :
+# 6 Exécution de la commande pour générer l’accès au guide.html via python :
 
 > Comme le service firewalld est arrêté tous les ports sont ouvert et donc la commande pour ouvrir le port 8080 n’est pas nécessaire, mais bien sur ce n’est pas sécure.
 
@@ -65,7 +65,7 @@ Copie de la clef publique vers la machine cible "srv2"
 
 > Sur un navigateur il est possible maintenant d’accéder à la page web sur l’adresse :192.168.122.216 :80808
 
-#7 Scanne de l’état d’une règle sur la machine cible « srv2 » :
+# 7 Scanne de l’état d’une règle sur la machine cible « srv2 » :
 
 > Dans cette étape nous allons seulement vérifier si le statut de la règle défini dans la variable $rule1.
 
@@ -79,7 +79,7 @@ Copie de la clef publique vers la machine cible "srv2"
     --rule $rule1 \
     $data_stream
 
-#8 résolution de la vulnérabilité avec ansible :
+# 8 résolution de la vulnérabilité avec ansible :
 > Pour le fix via ansible nous avons besoin seulement de l’id de la règle qui est stocké dans la variable $rule1 et exécuter la commande suivante :
 
 =>  result_id=$(oscap info rule1-$type-results.xml | grep 'Result ID' | sed 's/[[:blank:]]Result ID: //')
