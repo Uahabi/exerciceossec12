@@ -94,10 +94,9 @@ Copie de la clef publique vers la machine cible "srv2"
 
 =>  ansible all -i "$target," -m reboot
 
-> Nous pouvons maintenant vérifier avec la commande ci-dessous si la vulnérabilité a été résolu.
+> Nous pouvons maintenant vérifier avec la commande ci-dessous si la vulnérabilité a été résolu, cette commande va générer un nouveau fichier qu'on nommera "std-after" pour ce faire nous allons remplacer le contenu de notre variable $type
 
 =>  type="std-after"
-    type="rule1-$target-std-before"
     profile="xccdf_org.ssgproject.content_profile_anssi_nt28_minimal"
     oscap-ssh --sudo root@$target 22 xccdf eval \
     --fetch-remote-resource \
