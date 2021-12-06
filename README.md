@@ -3,7 +3,7 @@
 # Tâche :
 
 Depuis la machine "controler" (192.168.122.216, CentOS 7) il faut installer l'outil OpenScap pour ensuite via le protocole SSH (connexion sécurisée réalisé avec une clé Publique RSA) analyser la machine "srv2" (192.168.122.010, CentOS 7) en utilisant comme base ANSSI.
-Lorsque l'analyse est terminée il faut apporter le correctif pour un erreur (fail) en utilisant ansible.
+Lorsque l'analyse est terminée il faut apporter le correctif pour une vulnérabilité (fail) en utilisant ansible.
 
 1# Création des variables :
 
