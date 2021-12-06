@@ -69,7 +69,7 @@ Copie de la clef publique vers la machine cible "srv2"
 
 # 7 Scanne de l’état d’une règle sur la machine cible « srv2 » :
 
-> Dans cette étape nous allons seulement vérifier si le statut de la règle défini dans la variable $rule1.
+> Dans cette étape nous allons seulement vérifier si le statut (fail, ...) de srv2 en comparaison de la règle défini dans la variable $rule1.
 
 =>  oscap-ssh --sudo root@$target 22 xccdf eval \
     --fetch-remote-resource \
