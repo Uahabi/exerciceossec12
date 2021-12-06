@@ -57,13 +57,13 @@ Copie de la clef publique vers la machine cible "srv2"
 
 =>  oscap xccdf generate guide --profile $profile --output $type-guide.html $type-results.xml
 
-# 6 Exécution de la commande pour générer l’accès au guide.html via python :
+# 6 Exécution de la commande python pour générer l’accès au guide.html sur le web :
 
 > Comme le service firewalld est arrêté tous les ports sont ouvert et donc la commande pour ouvrir le port 8080 n’est pas nécessaire, mais bien sur ce n’est pas sécure.
 
 =>  python3 -m http.server 8080
 
-> Sur un navigateur il est possible maintenant d’accéder à la page web sur l’adresse :192.168.122.216 :80808
+> Sur un navigateur il est possible maintenant d’accéder à la page web sur l’adresse :192.168.122.216 :8080
 
 # 7 Scanne de l’état d’une règle sur la machine cible « srv2 » :
 
