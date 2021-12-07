@@ -83,7 +83,7 @@ Copie de la clef publique vers la machine cible "srv2"
 
 # 8 récupération dans une variable du fix ansible sur base de l'ID de la règle de vulnérabilité :
 
-> En exécutant la commande suivant ci-dessous nous allons charger le fix ansible dans une variable nommée $result_id, pour cela nous avons besoin de l’id de la règle qui est stocké dans la variable $rule1  :
+> En exécutant la commande suivante nous allons charger le fix ansible dans une variable nommée $result_id, pour cela nous avons besoin de l’id de la règle qui est stocké dans la variable $rule1  :
 
 =>  result_id=$(oscap info rule1-$type-results.xml | grep 'Result ID' | sed 's/[[:blank:]]Result ID: //')
     oscap xccdf generate fix \
