@@ -7,7 +7,7 @@ Lorsque l'analyse est terminée il faut apporter le correctif pour une vulnérab
 
 # 1 Création des variables :
 
-> Pour se faire j'ai enregistré les variables dans un fichier scripte pour qu'en cas de plantage ou redémarrage de la machine "controler" j'execute le script et gagne du temps 
+> Pour se faire j'ai enregistré les variables dans un fichier script pour qu'en cas de plantage ou redémarrage de la machine "controler" j'execute le script et gagne du temps 
 
 =>  ./Varaibles.sh
 
