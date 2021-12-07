@@ -105,7 +105,7 @@ Copie de la clef publique vers la machine cible "srv2"
 
 # 10 Validation de la mise en conformité
 
-> Nous pouvons maintenant vérifier avec la commande ci-dessous si la vulnérabilité a été résolu, cette commande va générer un nouveau fichier qu'on nommera "std-after" pour ce faire nous allons remplacer le contenu de notre variable $type
+> Nous pouvons maintenant valider avec la commande ci-dessous que la vulnérabilité a été résolu, cette commande va générer un nouveau fichier qu'on nommera "std-after" pour ce faire nous allons remplacer le contenu de notre variable $type
 
 =>  type="std-after"
     profile="xccdf_org.ssgproject.content_profile_anssi_nt28_minimal"
